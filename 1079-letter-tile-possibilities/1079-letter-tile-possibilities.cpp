@@ -1,10 +1,10 @@
 class Solution {
 public:
     void rightShift(int i, int j, string &s){
-    char x =s[j];
-    for(int k=j;k>i;k--)
-        s[k]=s[k-1];
-    s[i] =x;
+        char x =s[j];
+        for(int k=j;k>i;k--)
+            s[k]=s[k-1];
+        s[i] =x;
     }
 
     void leftShift(int i, int j, string &s){
@@ -15,20 +15,19 @@ public:
     }
     
     void backtrack(int i, string &s, int &count, int n){
-    if(i==n){
-        count++;
-        cout << s <<endl;
-        return;
-    }
-    vector<bool> flag(26, false);
-    for(int j=i;j<s.size();j++){
-        if(!flag[s[j]-'A']){
-            flag[s[j]-'A'] = true;
-            rightShift(i,j, s);
-            backtrack(i+1,s, count, n);
-            leftShift(i,j,s);
-        }   
-    }
+        if(i==n){
+            count++;
+            return;
+        }
+        vector<bool> flag(26, false);
+        for(int j=i;j<s.size();j++){
+            if(!flag[s[j]-'A']){
+                flag[s[j]-'A'] = true;
+                rightShift(i,j, s);
+                backtrack(i+1,s, count, n);
+                leftShift(i,j,s);
+            }   
+        }
         return;
     }
     
