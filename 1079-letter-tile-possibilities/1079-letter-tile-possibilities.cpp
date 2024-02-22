@@ -20,10 +20,10 @@ public:
         cout << s <<endl;
         return;
     }
-    vector<bool> flag(256, false);
+    vector<bool> flag(26, false);
     for(int j=i;j<s.size();j++){
-        if(!flag[s[j]]){
-            flag[s[j]] = true;
+        if(!flag[s[j]-'A']){
+            flag[s[j]-'A'] = true;
             rightShift(i,j, s);
             backtrack(i+1,s, count, n);
             leftShift(i,j,s);
