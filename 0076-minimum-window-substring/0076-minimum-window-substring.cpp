@@ -47,7 +47,6 @@ public:
         }
         if(ans==-1)
             return "";
-        cout <<"ind"<<ind << "ans" <<ans << endl;
         return s.substr(ind, ans);
 
 //         int required = dictT.size();
