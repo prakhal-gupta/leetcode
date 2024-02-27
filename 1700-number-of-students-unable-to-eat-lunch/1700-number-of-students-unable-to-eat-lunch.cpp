@@ -1,17 +1,25 @@
 class Solution {
 public:
     int countStudents(vector<int>& students, vector<int>& sandwiches) {
-        deque<int>q;
-        for(int i=0;i<sandwiches.size();i++){
-            q.push_back(students[i]);
+        int n = students.size();
+    std::vector<bool> eaten(n, false); // Keeps track of whether a student has eaten or not
+    int sandwichIndex = 0; // Index for iterating through sandwiches
+
+    while (sandwichIndex < n) {
+        bool satisfied = false; // Flag to indicate if any student can eat the current sandwich
+        for (int i = 0; i < n; ++i) {
+            if (!eaten[i] && students[i] == sandwiches[sandwichIndex]) {
+                eaten[i] = true; // Mark the student as eaten
+                satisfied = true; // Mark as satisfied
+                break; // Move to the next sandwich
+            }
         }
-        int i=0,k=0;
-        
-        while(q.size()!=0 && k!=q.size()){
-            if(q.front()!=sandwiches[i]){q.push_back(q.front());k++;}
-            else {k=0;i++;}
-            q.pop_front();
+        if (!satisfied) {
+            break; // No student can eat the current sandwich, so break the loop
         }
-        return q.size();
+        sandwichIndex++;
+    }
+
+    return n - sandwichIndex;
     }
 };
