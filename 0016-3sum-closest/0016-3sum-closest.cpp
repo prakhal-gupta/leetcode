@@ -8,16 +8,6 @@ public:
             int j = i+1, k=nums.size()-1;
             int tar = target - nums[i];
             while(j<k){
-                // if(nums[j]+nums[k]==tar)
-                //     return 0;
-                // else if( nums[j]+nums[k]<tar){
-                //     ans = min(ans,abs(target - (nums[i] + nums[j] + nums[k])));
-                //     j++;
-                // }
-                // else{
-                //     ans = min(ans,abs(target - (nums[i] + nums[j] + nums[k])));
-                //     k--;
-                // }
                 if(abs(target - (nums[i] + nums[j] + nums[k])) < ans){
                     ans = abs(target - (nums[i] + nums[j] + nums[k]));
                     sum = nums[i] + nums[j] + nums[k];
