@@ -15,9 +15,8 @@ public:
                 else
                     s1.pop();
             }
-            else{
+            else
                 s1.push(c);
-            }
         }
         return s1.empty();
     }
