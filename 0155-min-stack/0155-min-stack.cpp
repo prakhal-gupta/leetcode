@@ -1,28 +1,47 @@
 class MinStack {
-    
-    stack<int> st,temp;
+    stack<long long> st; // Use long long for the stack
+    long long mine;      // Use long long for the minimum value
 public:
     MinStack() {
+        mine = INT_MAX;
     }
     
     void push(int val) {
-        st.push(val);
-        if(temp.empty() || temp.top()>=val)
-            temp.push(val);
+        long long a = val; // Use long long for intermediate calculation
+        if (val < mine) {
+            a = 2LL * val - mine; // Use LL to ensure multiplication with long long
+            mine = val;
+        }   
+        st.push(a);
     }
     
     void pop() {
-        if(st.top()==temp.top())
-            temp.pop();
+        if (st.empty()) // Check if the stack is empty
+            return;
+
+        long long topElement = st.top();
         st.pop();
+
+        // If the top element was originally smaller than the current minimum,
+        // update the current minimum
+        if (topElement < mine) {
+            mine = 2LL * mine - topElement; // Use LL to ensure multiplication with long long
+        }
     }
     
     int top() {
-        return st.empty() ? -1 : st.top();
+        if (st.empty()) // Check if the stack is empty
+            return -1;
+
+        long long topElement = st.top();
+
+        // If the top element was originally smaller than the current minimum,
+        // return the original value instead of the transformed value
+        return topElement < mine ? static_cast<int>(mine) : static_cast<int>(topElement);
     }
     
     int getMin() {
-        return temp.empty() ? -1 : temp.top();
+        return static_cast<int>(mine);
     }
 };
 
