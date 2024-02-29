@@ -12,8 +12,6 @@ public:
     }
     
     void pop() {
-        if(st.empty())
-            return;
         if(st.top()==temp.top())
             temp.pop();
         st.pop();
