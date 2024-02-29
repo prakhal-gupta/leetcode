@@ -20,15 +20,11 @@ public:
     }
     
     int top() {
-       if(st.empty())
-           return -1;
-        return st.top();
+        return st.empty() ? -1 : st.top();
     }
     
     int getMin() {
-        if(temp.empty())
-            return -1;
-        return temp.top();
+        return temp.empty() ? -1 : temp.top();
     }
 };
 
