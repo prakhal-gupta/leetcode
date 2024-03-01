@@ -18,6 +18,7 @@ public:
         // head->next->next = head;
         // head->next = nullptr;
         // return reversedList;
+        
         ListNode *current = head;
         ListNode *previous = nullptr;
         while(current!=nullptr){
