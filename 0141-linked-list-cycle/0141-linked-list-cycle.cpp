@@ -10,7 +10,6 @@ class Solution {
 public:
     bool hasCycle(ListNode *head) {
         ListNode *s=head, *f=head;
-        
         while(f!=nullptr && f->next!=nullptr){
             s=s->next;
             f=f->next->next;
