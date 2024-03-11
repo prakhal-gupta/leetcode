@@ -13,7 +13,6 @@ public:
                 mp.erase(c);
             }
         }
-
         for (auto i = mp.begin(); i != mp.end(); i++) {
             str.append(i->second, i->first);
         }
