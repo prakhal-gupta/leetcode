@@ -1,20 +1,12 @@
 class Solution {
 public:
     int pivotInteger(int n) {
-        for (int i = 1; i <= n; i++) {
-            int sumLeft = 0;
-            int sumRight = 0;
-            for (int j = 1; j <= i; j++) {
-                sumLeft += j;
-            }
-            for (int k = i; k <= n; k++) {
-                sumRight += k;
-            }
-            if (sumLeft == sumRight) {
-                return i;
-            }
+        double x = sqrt(n * (n + 1) / 2.0);
+        
+        if (fmod(x, 1.0) != 0) {
+            return -1;
+        } else {
+            return static_cast<int>(x);
         }
-
-        return -1;
     }
 };
