@@ -37,8 +37,6 @@ ListNode* help(vector<ListNode*> &lists, int l, int r ){
     ListNode* mergeKLists(vector<ListNode*>& lists) {
         if(lists.size()==0)
             return NULL;
-        if(lists.size()==1)
-            return lists[0];
         return help(lists,0,lists.size()-1);
     }
 };
