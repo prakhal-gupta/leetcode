@@ -11,21 +11,19 @@
  */
 class Solution {
 public:
-    pair<int, int> calculateDiameterAndHeight(TreeNode* root) {
-        if (root == nullptr) {
-            return {0, 0};
-        }
-        auto leftData = calculateDiameterAndHeight(root->left);
-        auto rightData = calculateDiameterAndHeight(root->right);
-        int currentDiameter = max(leftData.second + rightData.second, 
-                                  max(leftData.first, rightData.first));
-        int currentHeight = max(leftData.second, rightData.second) + 1;
-
-        return {currentDiameter, currentHeight};
+    int height(TreeNode* root){
+         if(!root)
+             return 0;
+        return (1 + max(height(root->left) , height(root->right)));
     }
-
+    
     int diameterOfBinaryTree(TreeNode* root) {
-        return calculateDiameterAndHeight(root).first;
+        if(!root)
+            return 0;
+        int leftDiameter = diameterOfBinaryTree(root->left);
+        int rightDiameter = diameterOfBinaryTree(root->right);
+        int ans = max(height(root->left) + height(root->right), max(leftDiameter, rightDiameter));
+        return ans;
     }
 };
    
