@@ -16,7 +16,15 @@ public:
         if(n%2==0)
             return {};
         else if(n==1){
-            res.push_back(new TreeNode(0));
+            TreeNode* root = new TreeNode(0);
+            res.push_back(root);
+            return res;
+        }
+        else if(n==3){
+            TreeNode* root = new TreeNode(0);
+            root->left = new TreeNode(0);
+            root->right = new TreeNode(0);
+            res.push_back(root);
             return res;
         }
         else{
