@@ -11,7 +11,11 @@
  */
 class Solution {
 public:
+    unordered_map<int, vector<TreeNode*>> memo;
     vector<TreeNode*> allPossibleFBT(int n) {
+        if (memo.find(n) != memo.end()) {
+            return memo[n];
+        }
         vector<TreeNode*> res;
         if(n%2==0)
             return {};
@@ -39,6 +43,7 @@ public:
                 }
             }
         }
+        memo[n]=res;
         return res;
     }
 };
