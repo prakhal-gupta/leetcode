@@ -11,22 +11,12 @@
  */
 class Solution {
 public:
-    
-    
     vector<TreeNode*> allPossibleFBT(int n) {
         vector<TreeNode*> res;
         if(n%2==0)
             return {};
         else if(n==1){
-            TreeNode* root = new TreeNode(0);
-            res.push_back(root);
-            return res;
-        }
-        else if(n==3){
-            TreeNode* root = new TreeNode(0);
-            root->left = new TreeNode(0);
-            root->right = new TreeNode(0);
-            res.push_back(root);
+            res.push_back(new TreeNode(0));
             return res;
         }
         else{
