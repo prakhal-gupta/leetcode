@@ -34,16 +34,14 @@ public:
         while(!st.empty()){
             auto curr = st.top();
             st.pop();
-            if (curr.first) {
-                if (!curr.second) {
-                    if(curr.first->right)
-                        st.push({curr.first->right, false});
-                    st.push({curr.first, true});
-                    if(curr.first->left)
-                        st.push({curr.first->left, false});
-                } else {
-                    ans.push_back(curr.first->val);
-                }
+            if (!curr.second) {
+                if(curr.first->right)
+                    st.push({curr.first->right, false});
+                st.push({curr.first, true});
+                if(curr.first->left)
+                    st.push({curr.first->left, false});
+            } else {
+                ans.push_back(curr.first->val);
             }
         }
         return ans;
