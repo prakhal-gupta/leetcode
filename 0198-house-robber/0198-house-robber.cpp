@@ -1,9 +1,6 @@
 class Solution {
 public:
     int rob(vector<int>& nums) {
-        ios::sync_with_stdio(false);
-        cin.tie(nullptr);
-        cout.tie(nullptr);
         int n = nums.size();
         if(n==1 ){
             return nums[0];
