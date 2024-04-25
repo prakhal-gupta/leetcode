@@ -22,11 +22,11 @@ public:
         if (i > 0) {
             dp[i][c] = dfs(i - 1, c, dp, s, k);
             if (match) {
-                for (int p = 0; p < 26; p++) {
-                    if (abs(c - p) <= k) {
-                        dp[i][c] = max(dp[i][c], dfs(i - 1, p, dp, s, k) + 1);
-                    }
+                int maxLen = 0;
+                for (int p = max(0, c - k); p <= min(25, c + k); p++) {
+                    maxLen = max(maxLen, dfs(i - 1, p, dp, s, k));
                 }
+                dp[i][c] = maxLen + 1;
             }
         }
         return dp[i][c];
