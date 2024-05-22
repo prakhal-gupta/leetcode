@@ -13,7 +13,6 @@ public:
             result.push_back(partition);
             return;
         }
-
         for (int end = start; end < s.length(); ++end) {
             if (isPalindrome(s, start, end)) {
                 partition.push_back(s.substr(start, end - start + 1));
